@@ -31,12 +31,13 @@ public class PlayerController : MonoBehaviour {
 
         float deadzone = 0.7f;
         Vector2 stickInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (stickInput.magnitude > deadzone)
+        if (stickInput.magnitude > deadzone)     
         {
             GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, fireballSpawn.rotation);
-            fire.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 6;
+            fire.GetComponent<Rigidbody2D>().velocity = stickInput * 6;
             Destroy(fire, 2.0f);
         }
+
 
         
 
