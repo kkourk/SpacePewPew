@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
@@ -11,3 +12,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 74ebcde172ea9b44a9b7f7a99543b983
+=======
+  m_Scenes: []
+>>>>>>> parent of 99b1b9d... Merge branch 'master' of https://github.com/kkourk/SpacePewPew
