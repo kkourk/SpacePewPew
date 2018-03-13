@@ -1,21 +1,24 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class Player2Shooting : MonoBehaviour {
+
 
     public GameObject fireballPrefab;
     public Transform fireballSpawn;
     bool ready = true;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetAxis("Right Trigger") >0.5f)
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetAxis("Right Trigger 2") > 0.5f)
         {
             Shoot();
         }
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour {
         if (ready)
         {
             float deadzone = 0.7f;
-            Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
+            Vector2 stickInput = new Vector2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"));
             if (stickInput.magnitude > deadzone)
             {
                 GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, fireballSpawn.rotation);
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour {
             Invoke("DelayHandler", 1);
         }
 
-        
+
     }
     void DelayHandler()
     {
