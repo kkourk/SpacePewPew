@@ -27,8 +27,9 @@ public class RandomScript : MonoBehaviour {
         }
         if (ready)
         {
-            this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity * 0.2f;
+            //this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity * 0.2f;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             // Apply the transform to the object  
             var angle = Mathf.Atan2(Input.GetAxis("Vertical"),Input.GetAxis("Horizontal")) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle+90);
