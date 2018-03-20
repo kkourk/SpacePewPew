@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-
+    public int playerOneWins = 0;
+    public int playerTwoWins = 0;
 	public static GameManager instance = null;
 
 	//Awake is always called before any Start functions
