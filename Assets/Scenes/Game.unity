@@ -874,7 +874,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 765111232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb2c97877c68a3498456b83acec96db, type: 3}
+  m_Script: {fileID: 11500000, guid: 527453e952f5660498bf7a7fdb3527e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerslider: {fileID: 594490729}
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  fireballPrefab: {fileID: 1999262391111632, guid: a1133e8007963d4438d707201a7cb186,
+  fireballPrefab: {fileID: 1999262391111632, guid: 91232a2bbad441245b0c37b11a0b218b,
     type: 2}
   fireballSpawn: {fileID: 345780061}
 --- !u!114 &1781828156
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781828149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e84cd2e7caa454bb75e2fb6fc860ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fe6f0bc7a28a5374c9295dd0d05ed276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerslider: {fileID: 849624755}
