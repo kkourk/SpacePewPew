@@ -25,4 +25,16 @@ public class GameManager : MonoBehaviour {
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad (gameObject);
 	}
+
+    public void EndRound(int playernumber)
+    {
+        if (playernumber == 1)
+        {
+            playerOneWins++;
+        }
+        else if (playernumber == 2)
+        {
+            playerTwoWins++;
+        }
+    }
 }
