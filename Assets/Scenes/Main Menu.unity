@@ -216,6 +216,10 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22400008, guid: 12318c897ca804247882e6f64dabaa7e,
     type: 2}
   m_PrefabInternal: {fileID: 6657423}
+--- !u!1 &373182857 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 12318c897ca804247882e6f64dabaa7e, type: 2}
+  m_PrefabInternal: {fileID: 1719856440}
 --- !u!1 &376133791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,9 +1095,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030304027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94e2f3e6ed253548b3f23340ba04d6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e2e49cfb60afb4c8272f8091e0a259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1781340216}
+  selectedObject: {fileID: 1741926953}
 --- !u!1 &1143259214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,9 +1506,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1302441448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94e2f3e6ed253548b3f23340ba04d6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e2e49cfb60afb4c8272f8091e0a259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1781340216}
+  selectedObject: {fileID: 373182857}
 --- !u!1 &1690482875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,9 +1995,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735253360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94e2f3e6ed253548b3f23340ba04d6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e2e49cfb60afb4c8272f8091e0a259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1781340216}
+  selectedObject: {fileID: 514212396}
 --- !u!1 &1741926953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2179,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 514212396}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1781340217
