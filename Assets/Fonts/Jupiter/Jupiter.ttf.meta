@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8719111496b7abf4ba341320efd06d7b
 timeCreated: 1521539117
+=======
+guid: 4591922b2f1a7374b867a6e1a05833f6
+timeCreated: 1520943525
+>>>>>>> master
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
