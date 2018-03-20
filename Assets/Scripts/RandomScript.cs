@@ -32,7 +32,7 @@ public class RandomScript : MonoBehaviour {
             this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             // Apply the transform to the object  
             var angle = Mathf.Atan2(Input.GetAxis("Vertical"),Input.GetAxis("Horizontal")) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle+90);
+            transform.rotation = Quaternion.Euler(0, 0, angle+270);
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
             Vector3 newVector = new Vector3(this.transform.position.x, this.transform.position.y, 0.0f);
             this.GetComponent<Rigidbody>().AddForce(dir * 2,ForceMode.Impulse);
