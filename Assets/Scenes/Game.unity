@@ -818,7 +818,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765111232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children:
   - {fileID: 1281268505}
@@ -874,10 +874,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 765111232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 527453e952f5660498bf7a7fdb3527e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bb2c97877c68a3498456b83acec96db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerslider: {fileID: 594490729}
+  gameManager: {fileID: 901140365}
 --- !u!1 &849624753
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +964,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &901140365 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 906474669}
+  m_Script: {fileID: 11500000, guid: 484290e9f6249024294a4ad83c2309fc, type: 3}
 --- !u!1001 &906474669
 Prefab:
   m_ObjectHideFlags: 0
@@ -1002,6 +1009,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+        type: 2}
+      propertyPath: textfield
+      value: 
+      objectReference: {fileID: 1811313232}
+    - target: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+        type: 2}
+      propertyPath: playerOne
+      value: 
+      objectReference: {fileID: 765111232}
+    - target: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+        type: 2}
+      propertyPath: playerTwo
+      value: 
+      objectReference: {fileID: 1781828149}
+    - target: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+        type: 2}
+      propertyPath: playeroneslider
+      value: 
+      objectReference: {fileID: 594490729}
+    - target: {fileID: 114762856591796622, guid: c1122885ee2b7514ebe36292f77c33b3,
+        type: 2}
+      propertyPath: playertwoslider
+      value: 
+      objectReference: {fileID: 849624755}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1122885ee2b7514ebe36292f77c33b3, type: 2}
   m_IsPrefabParent: 0
@@ -1353,6 +1385,7 @@ RectTransform:
   m_Children:
   - {fileID: 594490728}
   - {fileID: 849624754}
+  - {fileID: 1811313231}
   m_Father: {fileID: 702201310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1496,7 +1529,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502602079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b43e4ce0ac4ab47b99d07c5a8dabba, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b0edbea776e008499ce6f5b40b7c4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1781828149
@@ -1616,7 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  fireballPrefab: {fileID: 1999262391111632, guid: 91232a2bbad441245b0c37b11a0b218b,
+  fireballPrefab: {fileID: 1999262391111632, guid: a1133e8007963d4438d707201a7cb186,
     type: 2}
   fireballSpawn: {fileID: 345780061}
 --- !u!114 &1781828156
@@ -1638,10 +1671,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781828149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6f0bc7a28a5374c9295dd0d05ed276, type: 3}
+  m_Script: {fileID: 11500000, guid: f1e84cd2e7caa454bb75e2fb6fc860ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerslider: {fileID: 849624755}
+  gameManager: {fileID: 901140365}
 --- !u!1 &1803531592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,9 +1713,83 @@ MonoBehaviour:
   m_GameObject: {fileID: 1803531592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9a98857832a9548853134ebd7de143, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d17d3b2b90104143983f7df64b4ad1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1811313230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1811313231}
+  - component: {fileID: 1811313233}
+  - component: {fileID: 1811313232}
+  m_Layer: 0
+  m_Name: PlayerScore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1811313231
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811313230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1458780802}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5, y: 130}
+  m_SizeDelta: {x: 177, y: 39.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1811313232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811313230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 28
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0 - 0
+--- !u!222 &1811313233
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811313230}
 --- !u!1 &1906849823
 GameObject:
   m_ObjectHideFlags: 0

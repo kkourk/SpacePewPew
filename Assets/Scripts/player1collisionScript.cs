@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class player1collisionScript : MonoBehaviour {
-
     public Slider playerslider;
+    public GameManager gameManager;
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
@@ -16,7 +16,7 @@ public class player1collisionScript : MonoBehaviour {
             Debug.Log(this.gameObject.GetComponent<PlayerController>().health);
             if (this.gameObject.GetComponent<PlayerController>().health <= 0)
             {
-
+                gameManager.EndRound(2);
             }
         }
     }

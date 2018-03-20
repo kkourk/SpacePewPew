@@ -51,3 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484290e9f6249024294a4ad83c2309fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textfield: {fileID: 0}
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
+  playeroneslider: {fileID: 0}
+  playertwoslider: {fileID: 0}
