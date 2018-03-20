@@ -8,9 +8,9 @@ public class ToDoScript : MonoBehaviour {
      * Insert to do list here 
      * 
      * Implement:
-     * score system
-     * health
-     * damage
+     * Make fire dissappear when new round
+     * make fire dissappear when coliding with other fire
+     * 
      * rounds
      * sound
      * powerups
