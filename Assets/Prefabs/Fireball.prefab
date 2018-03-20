@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4901719740455740}
   - component: {fileID: 212528950604124352}
   - component: {fileID: 54902298452661860}
+  - component: {fileID: 114089329460027076}
   - component: {fileID: 65544880628947898}
-  - component: {fileID: 114291566958050644}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Projectile
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999262391111632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24597657, y: -2.3730154, z: 0}
+  m_LocalPosition: {x: -6.66458, y: -3.508967, z: 0}
   m_LocalScale: {x: 0.48554748, y: 0.20162567, z: 0.32918465}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.91, y: 2.12, z: 0.2}
   m_Center: {x: 0.92, y: 0, z: 0}
---- !u!114 &114291566958050644
+--- !u!114 &114089329460027076
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff0685ce97ea3b468f799a12e518bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  dmg: 50
 --- !u!212 &212528950604124352
 SpriteRenderer:
   m_ObjectHideFlags: 1
