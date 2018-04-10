@@ -24,19 +24,19 @@ public class GameManager : MonoBehaviour {
         playerTwoTransform = playerTwo.transform;
         //Debug.Log(playerTwoTransform.position);
         //Check if instance already exists
-        if (instance == null)
+       // if (instance == null)
 
 			//if not, set instance to this
-			instance = this;
+		//	instance = this;
 
 		//If instance already exists and it's not this:
-		else if (instance != this)
+		//else if (instance != this)
 
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-			Destroy (gameObject);    
+		//	Destroy (gameObject);    
         playerStats = this.GetComponent<PlayersStats>();
 		//Sets this to not be destroyed when reloading scene
-		DontDestroyOnLoad (gameObject);
+		//DontDestroyOnLoad (gameObject);
 	}
     void start()
     {
@@ -55,14 +55,7 @@ public class GameManager : MonoBehaviour {
             playerTwoWins++;
             //SceneManager.LoadScene("Game");
         }
-        if (playerOneWins >=3)
-        {
-            //end game
-        }
-        if (playerTwoWins >= 3)
-        {
-            //end game
-        }
+        
 
         textfield.text = string.Format("{0} - {1}", playerOneWins, playerTwoWins);
         //reset game status (reloading scene won't work cause of the ui)
@@ -94,6 +87,50 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject fire in projectiles2)
         {
             Destroy(fire);
+        }
+        if (playerOneWins >= 3)
+        {
+           
+            playerTwoWins = 0;
+            playerOneWins = 0;
+            playerTwo.transform.position = new Vector3(3, 0, 0);
+            playerTwo.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            playerTwo.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            playerOne.transform.position = new Vector3(-3, 0, 0);
+            playerOne.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            playerTwo.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerStats.health1 = 100;
+            playerStats.health2 = 100;
+            playerStats.damage1 = PlayersStats.defDamage;
+            playerStats.damage2 = PlayersStats.defDamage;
+            playeroneslider.value = 100;
+            playertwoslider.value = 100;
+            SceneManager.LoadScene("Main Menu");
+            //end game
+        }
+        if (playerTwoWins >= 3)
+        {
+            //end game
+            
+            playerTwoWins = 0;
+            playerOneWins = 0;
+            playerTwo.transform.position = new Vector3(3, 0, 0);
+            playerTwo.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            playerTwo.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            playerOne.transform.position = new Vector3(-3, 0, 0);
+            playerOne.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            playerTwo.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerStats.health1 = 100;
+            playerStats.health2 = 100;
+            playerStats.damage1 = PlayersStats.defDamage;
+            playerStats.damage2 = PlayersStats.defDamage;
+            playeroneslider.value = 100;
+            playertwoslider.value = 100;
+            SceneManager.LoadScene("Main Menu");
         }
     }
 

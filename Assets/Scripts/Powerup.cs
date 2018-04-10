@@ -103,6 +103,8 @@ public class Powerup : MonoBehaviour
         #region HidePowerup
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+       
         #endregion
 
         yield return new WaitForSeconds(duration);

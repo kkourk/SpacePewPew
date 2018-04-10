@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4989058154699520}
   - component: {fileID: 114762856591796622}
+  - component: {fileID: 114676275525420992}
+  - component: {fileID: 114307610899902328}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -40,6 +42,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114307610899902328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234914701564196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ca0ad21c9258945aebc11a05032c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health1: 100
+  health2: 100
+  damage1: 15
+  damage2: 15
+  shield1: 0
+  shield2: 0
+--- !u!114 &114676275525420992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234914701564196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ca0ad21c9258945aebc11a05032c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health1: 100
+  health2: 100
+  damage1: 15
+  damage2: 15
+  shield1: 0
+  shield2: 0
 --- !u!114 &114762856591796622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,8 +87,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484290e9f6249024294a4ad83c2309fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textfield: {fileID: 0}
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
-  playeroneslider: {fileID: 0}
-  playertwoslider: {fileID: 0}
+  textfield: {fileID: 114510960455426140, guid: b057a7e037361ea4cac3eeb47563dd09,
+    type: 2}
+  playerOne: {fileID: 1456273704355738, guid: 22f45deaff744714bb9d0802457140e8, type: 2}
+  playerTwo: {fileID: 1912583143053944, guid: 31ab6b1fa23bd9646a81b38c0885bfe5, type: 2}
+  playeroneslider: {fileID: 114858877708215506, guid: b057a7e037361ea4cac3eeb47563dd09,
+    type: 2}
+  playertwoslider: {fileID: 114858877708215506, guid: b057a7e037361ea4cac3eeb47563dd09,
+    type: 2}
