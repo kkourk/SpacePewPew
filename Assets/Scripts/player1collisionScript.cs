@@ -8,7 +8,7 @@ public class player1collisionScript : MonoBehaviour {
     public GameManager gameManager;
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Projectile2")
         {
             this.gameObject.GetComponent<PlayerController>().health = this.gameObject.GetComponent<PlayerController>().health - other.gameObject.GetComponent<ProjectileScript>().ApplyDamage();

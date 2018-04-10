@@ -61,7 +61,15 @@ public class Powerup : MonoBehaviour
 
         //in-game effect
         PlayersStats stats = player.GetComponent<PlayersStats>();
-        stats.health1 += healthRegened;
+        if (player.CompareTag("Player1"))
+        {
+            stats.health1 += healthRegened;
+        }
+        else 
+        {
+            stats.health2 += healthRegened;
+        }
+
     
         //remove powerup on pickup
         Destroy(gameObject);
@@ -75,7 +83,17 @@ public class Powerup : MonoBehaviour
 
         //in-game effect
         PlayersStats stats = player.GetComponent<PlayersStats>();
-        stats.damage1 = PlayersStats.defDamage * damageMultiplier;
+
+        if (player.CompareTag("Player1"))
+        {
+            stats.damage1 = PlayersStats.defDamage * damageMultiplier;
+        }
+        else
+        {
+            stats.damage2 = PlayersStats.defDamage * damageMultiplier;
+        }
+
+        
 
         #region HidePowerup
         GetComponent<MeshRenderer>().enabled = false;
@@ -84,7 +102,15 @@ public class Powerup : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        stats.damage1 = PlayersStats.defDamage;
+
+        if (player.CompareTag("Player1"))
+        {
+            stats.damage1 = PlayersStats.defDamage;
+        }
+        else
+        {
+            stats.damage2 = PlayersStats.defDamage;
+        }
 
 
         //remove powerup on pickup
