@@ -11,4 +11,21 @@ public class ProjectileScript : MonoBehaviour {
     {
         return dmg;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other != this)
+        {
+            if (this.tag =="Projectile" && other.tag != "Player1")
+            {
+                Destroy(this.gameObject);
+            }
+            else if (this.tag == "Projectile2" && other.tag != "Player2" )
+            {
+                Destroy(this.gameObject);
+            }
+            
+        }
+       
+    }
 }

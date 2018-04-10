@@ -26,9 +26,9 @@ public class CollisionScript : MonoBehaviour {
             stats.health2 -= stats.damage1;
             playerslider.value = stats.health2;
             Debug.Log(stats.health2);
-            if (stats.health1 <= 0)
-            
+            if (stats.health2 <= 0)
             {
+                Debug.Log("Ending round");
                 gameManager.EndRound(1);
             }
         }

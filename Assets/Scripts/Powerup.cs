@@ -58,18 +58,23 @@ public class Powerup : MonoBehaviour
                     break;
             }
         }
+        else if (other.tag =="Projectile2" || other.tag =="Projectile")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void HealthRegen(Collider player)
     {
         //pickup animation
         //Instantiate(pickupEffect, transform.position, transform.rotation);
-
+        Debug.Log("Health Regen");
         //in-game effect
        
         if (player.CompareTag("Player1"))
         {
             stats.health1 += healthRegened;
+            Debug.Log(stats.health1);
         }
         else 
         {

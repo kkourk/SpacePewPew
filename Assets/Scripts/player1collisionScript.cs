@@ -26,6 +26,7 @@ public class player1collisionScript : MonoBehaviour {
             Debug.Log(stats.health1);
             if (stats.health1 <= 0)
             {
+                Debug.Log("Ending round");
                 gameManager.EndRound(2);
             }
         }

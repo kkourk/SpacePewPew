@@ -8,6 +8,7 @@ TagManager:
   - Projectile2
   - Player1
   - Player2
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1376653903
     locked: 0

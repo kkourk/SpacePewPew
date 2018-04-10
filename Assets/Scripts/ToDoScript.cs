@@ -17,6 +17,9 @@ public class ToDoScript : MonoBehaviour {
      * powerups spawner
      * obstacles
      * 
+     * UI:
+     * Attack cooldown
+     * Move cooldown
      * 
      * Make/get:
      * art

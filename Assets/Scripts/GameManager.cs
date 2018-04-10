@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public GameObject playerTwo;
     Transform playerOneTransform;
     Transform playerTwoTransform;
+    PlayersStats playerStats;
     public Slider playeroneslider;
     public Slider playertwoslider;
     public static GameManager instance = null;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 			Destroy (gameObject);    
-
+        playerStats = this.GetComponent<PlayersStats>();
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad (gameObject);
 	}
@@ -54,14 +55,15 @@ public class GameManager : MonoBehaviour {
             playerTwoWins++;
             //SceneManager.LoadScene("Game");
         }
-        if (playerOneWins >=2)
+        if (playerOneWins >=3)
         {
             //end game
         }
-        if (playerTwoWins >= 2)
+        if (playerTwoWins >= 3)
         {
             //end game
         }
+
         textfield.text = string.Format("{0} - {1}", playerOneWins, playerTwoWins);
         //reset game status (reloading scene won't work cause of the ui)
         playerTwo.transform.position = new Vector3(3, 0, 0);
@@ -72,10 +74,27 @@ public class GameManager : MonoBehaviour {
         playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         playerTwo.transform.rotation = Quaternion.Euler(0,0,0);
         playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
-        playerTwo.GetComponent<Player2Shooting>().health = 100;
-        playerOne.GetComponent<PlayerController>().health = 100;
+        playerStats.health1 = 100;
+        playerStats.health2 = 100;
+        playerStats.damage1 = PlayersStats.defDamage;
+        playerStats.damage2 = PlayersStats.defDamage;
         playeroneslider.value = 100;
         playertwoslider.value = 100;
+        GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("PowerUp");
+        foreach (GameObject powerup in gameobjects)
+        {
+            Destroy(powerup);
+        }
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach (GameObject fire in projectiles)
+        {
+            Destroy(fire);
+        }
+        GameObject[] projectiles2 = GameObject.FindGameObjectsWithTag("Projectile2");
+        foreach (GameObject fire in projectiles2)
+        {
+            Destroy(fire);
+        }
     }
 
     void EndGame()
