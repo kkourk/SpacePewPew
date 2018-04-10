@@ -21,6 +21,12 @@ public class Powerup : MonoBehaviour
     public float damageMultiplier = 2f;
     public float duration = 4f;// duration of boost in seconds
 
+    PlayersStats stats;
+
+    private void Awake()
+    {
+        stats = GameObject.Find("GameManager").GetComponent<PlayersStats>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -60,7 +66,7 @@ public class Powerup : MonoBehaviour
         //Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //in-game effect
-        PlayersStats stats = player.GetComponent<PlayersStats>();
+       
         if (player.CompareTag("Player1"))
         {
             stats.health1 += healthRegened;
@@ -82,7 +88,6 @@ public class Powerup : MonoBehaviour
         //Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //in-game effect
-        PlayersStats stats = player.GetComponent<PlayersStats>();
 
         if (player.CompareTag("Player1"))
         {
