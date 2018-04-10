@@ -13,5 +13,7 @@ public class PlayersStats : MonoBehaviour {
     public float damage1 = defDamage;
     public float damage2 = defDamage;
 
+    public bool shield1 = false;
+    public bool shield2 = false;
 
 }

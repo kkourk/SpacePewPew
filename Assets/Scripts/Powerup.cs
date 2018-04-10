@@ -7,7 +7,7 @@ using UnityEngine;
 //Figure out how to control the stats of the 2 players
 
 
-public enum PowerUps { DamageUp, HealthRegen };
+public enum PowerUps { DamageUp, HealthRegen , Shield};
 
 public class Powerup : MonoBehaviour
 {
@@ -22,15 +22,19 @@ public class Powerup : MonoBehaviour
     public float duration = 4f;// duration of boost in seconds
 
     PlayersStats stats;
+    GameObject shieldObj1;
+    GameObject shieldObj2;
 
     private void Awake()
     {
         stats = GameObject.Find("GameManager").GetComponent<PlayersStats>();
+        shieldObj1 = GameObject.Find("ShieldObj1");
+        shieldObj2 = GameObject.Find("ShieldObj2");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player1"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             switch (type)
             {
@@ -40,19 +44,8 @@ public class Powerup : MonoBehaviour
                 case PowerUps.HealthRegen:
                     HealthRegen(other);
                     break;
-                default:
-                    break;
-            }
-        }
-        else if (other.CompareTag("Player2"))
-        {
-            switch (type)
-            {
-                case PowerUps.DamageUp:
-                    StartCoroutine(TempDmgBoost(other));
-                    break;
-                case PowerUps.HealthRegen:
-                    HealthRegen(other);
+                case PowerUps.Shield:
+                    Shield(other);
                     break;
                 default:
                     break;
@@ -66,11 +59,13 @@ public class Powerup : MonoBehaviour
 
     void HealthRegen(Collider player)
     {
+        Debug.Log("Health Regen Picked Up");
+
         //pickup animation
         //Instantiate(pickupEffect, transform.position, transform.rotation);
-        Debug.Log("Health Regen");
+
         //in-game effect
-       
+
         if (player.CompareTag("Player1"))
         {
             stats.health1 += healthRegened;
@@ -126,4 +121,28 @@ public class Powerup : MonoBehaviour
         //remove powerup on pickup
         Destroy(gameObject);
     }
+
+    void Shield(Collider player)
+    {
+        //pickup animation
+        //Instantiate(pickupEffect, transform.position, transform.rotation);
+        
+        //in-game effect
+
+        if (player.CompareTag("Player1"))
+        {
+            stats.shield1 = true;
+            shieldObj1.GetComponent<Renderer>().enabled = true;
+        }
+        else
+        {
+            stats.shield2 = true;
+            shieldObj2.GetComponent<Renderer>().enabled = true;
+        }
+
+
+        //remove powerup on pickup
+        Destroy(gameObject);
+    }
+
 }

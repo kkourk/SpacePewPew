@@ -8,10 +8,12 @@ public class player1collisionScript : MonoBehaviour {
     public GameManager gameManager;
 
     PlayersStats stats;
+    GameObject shieldObj1;
 
     private void Awake()
     {
         stats = GameObject.Find("GameManager").GetComponent<PlayersStats>();
+        shieldObj1 = GameObject.Find("ShieldObj1");
     }
 
     void OnTriggerEnter(Collider other)
@@ -19,16 +21,23 @@ public class player1collisionScript : MonoBehaviour {
         //Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Projectile2")
         {
-            //this.gameObject.GetComponent<PlayerController>().health = this.gameObject.GetComponent<PlayerController>().health - other.gameObject.GetComponent<ProjectileScript>().ApplyDamage();
-            //playerslider.value = this.gameObject.GetComponent<PlayerController>().health;
-            stats.health1 -= stats.damage2;
-            playerslider.value = stats.health1;
-            Debug.Log(stats.health1);
-            if (stats.health1 <= 0)
+            if (stats.shield1)
             {
-                Debug.Log("Ending round");
-                gameManager.EndRound(2);
+                stats.shield1 = false;
+                shieldObj1.GetComponent<Renderer>().enabled = false;
             }
+            else
+            {
+                stats.health1 -= stats.damage2;
+                playerslider.value = stats.health1;
+                Debug.Log(stats.health1);
+                if (stats.health1 <= 0)
+                {
+                    Debug.Log("Ending round");
+                    gameManager.EndRound(2);
+                }
+            }
+            
         }
     }
 }
