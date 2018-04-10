@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class crossHairScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+ 
+    // Use this for initialization
+    void Start () {
+       
+    }
 
     void FixedUpdate()
     {
-        Vector3 vNewInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+
+       Vector3 vNewInput = new Vector3(Input.GetAxis("Rx"), Input.GetAxis("Ry"), 0.0f);
         Move(vNewInput);
     }
     void Move(Vector3 vNewInput)
     {
 
+       
+        if (vNewInput.sqrMagnitude < 0.3f)
+        {
+            return;
+        }
         //this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity * 0.2f;
         // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
