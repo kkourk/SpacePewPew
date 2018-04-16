@@ -10,18 +10,22 @@ public class GameManager : MonoBehaviour {
     public Text textfield;
     public GameObject playerOne;
     public GameObject playerTwo;
+    public GameObject powerupManager;
     Transform playerOneTransform;
     Transform playerTwoTransform;
     PlayersStats playerStats;
     public Slider playeroneslider;
     public Slider playertwoslider;
     public static GameManager instance = null;
+    bool paused = false;
+    public Text countdown;
 
 	//Awake is always called before any Start functions
 	void Awake()
 	{
         playerOneTransform = playerOne.transform;
         playerTwoTransform = playerTwo.transform;
+        paused = false;
         //Debug.Log(playerTwoTransform.position);
         //Check if instance already exists
        // if (instance == null)
@@ -35,14 +39,62 @@ public class GameManager : MonoBehaviour {
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 		//	Destroy (gameObject);    
         playerStats = this.GetComponent<PlayersStats>();
-		//Sets this to not be destroyed when reloading scene
-		//DontDestroyOnLoad (gameObject);
+        //Sets this to not be destroyed when reloading scene
+        //DontDestroyOnLoad (gameObject);
+
+        Countdown();
+        
 	}
     void start()
     {
         
     }
+    void Countdown()
+    {
+        //pause game
+        Pause();
+        //countdown
+        countdown.text = "3";
+        //unpause
+        Invoke("Pause", 4);
+    }
 
+    void Pause()
+    {
+        Debug.Log(paused);
+        if (!paused)
+        {
+            foreach (MonoBehaviour scripts in playerOne.GetComponents<MonoBehaviour>())
+            {
+                scripts.enabled = false;
+            }
+            foreach (MonoBehaviour scripts in playerTwo.GetComponents<MonoBehaviour>())
+            {
+                scripts.enabled = false;
+            }
+            powerupManager.GetComponent<PowerupManager>().enabled = false;
+
+            paused = true;
+            Debug.Log(paused);
+        }
+        else
+        {
+            //lock everything else
+            foreach (MonoBehaviour scripts in playerOne.GetComponents<MonoBehaviour>())
+            {
+                scripts.enabled = true;
+            }
+            foreach (MonoBehaviour scripts in playerTwo.GetComponents<MonoBehaviour>())
+            {
+                scripts.enabled = true;
+            }
+            powerupManager.GetComponent<PowerupManager>().enabled = true;
+
+            paused = false;
+            Debug.Log(paused);
+        }
+        
+    }
     public void EndRound(int playernumber)
     {
         if (playernumber == 1)
@@ -55,7 +107,8 @@ public class GameManager : MonoBehaviour {
             playerTwoWins++;
             //SceneManager.LoadScene("Game");
         }
-        
+
+        Countdown();
 
         textfield.text = string.Format("{0} - {1}", playerOneWins, playerTwoWins);
         //reset game status (reloading scene won't work cause of the ui)

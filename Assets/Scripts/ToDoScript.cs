@@ -8,18 +8,11 @@ public class ToDoScript : MonoBehaviour {
      * Insert to do list here 
      * 
      * Implement:
-     * Make fire dissappear when new round
-     * make fire dissappear when coliding with other fire
-     * 
-     * rounds
      * sound
-     * powerups
-     * powerups spawner
      * obstacles
      * 
      * UI:
-     * Attack cooldown
-     * Move cooldown
+     * Move cooldown icon
      * 
      * Make/get:
      * art

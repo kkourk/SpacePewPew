@@ -33,9 +33,9 @@ public class crossHairScript : MonoBehaviour {
         //  Vector3 newVector = new Vector3(this.transform.position.x, this.transform.position.y, 0.0f);
         //  gameObject.transform.rotation = dir;
         // Smoothly tilts a transform towards a target rotation.
-        Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
+       // Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
 
-        Quaternion target = Quaternion.Euler(stickInput.x, stickInput.y, 0);
+        //Quaternion target = Quaternion.Euler(stickInput.x, stickInput.y, 0);
         var angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
         var newAngle = Quaternion.Euler(0, 0, -angle);
         // Dampen towards the target rotation
