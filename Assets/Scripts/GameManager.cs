@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour
         playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerStats.health1 = 100;
         playerStats.health2 = 100;
+        playerStats.shield1 = false;
+        playerStats.shield2 = false;
         playerStats.damage1 = PlayersStats.defDamage;
         playerStats.damage2 = PlayersStats.defDamage;
         playeroneslider.value = 100;
