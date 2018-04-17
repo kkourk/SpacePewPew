@@ -156,14 +156,8 @@ public class Powerup : MonoBehaviour
 
     void Shield(Collider player)
     {
-        if (Random.Range(0, 1) == 0)
-        {
-            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah1");
-        }
-        else
-        {
-            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah2");
-        }
+        GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah1");
+        
 
         //in-game effect
 
