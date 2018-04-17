@@ -34,6 +34,7 @@ public class player1collisionScript : MonoBehaviour {
                 //Debug.Log(stats.health1);
                 if (stats.health1 <= 0)
                 {
+                    GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah2");
                     //Debug.Log("Ending round");
                     gameManager.EndRound(2);
                 }
