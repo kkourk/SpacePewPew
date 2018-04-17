@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class crossHairScript : MonoBehaviour {
- 
+    float angle;
+    Quaternion newAngle;
+    Vector2 vNewInput;
     // Use this for initialization
     void Start () {
        
     }
 
-    void FixedUpdate()
+    void Update()
     {
-
-       Vector3 vNewInput = new Vector3(Input.GetAxis("Rx"), Input.GetAxis("Ry"), 0.0f);
+        transform.rotation = newAngle;
+        vNewInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
         Move(vNewInput);
     }
-    void Move(Vector3 vNewInput)
+    void Move(Vector2 vNewInput)
     {
 
        
@@ -36,8 +38,8 @@ public class crossHairScript : MonoBehaviour {
        // Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
 
         //Quaternion target = Quaternion.Euler(stickInput.x, stickInput.y, 0);
-        var angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
-        var newAngle = Quaternion.Euler(0, 0, -angle);
+        angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
+        newAngle = Quaternion.Euler(0, 0, -angle);
         // Dampen towards the target rotation
         //Debug.Log(newAngle);
         transform.rotation = newAngle;

@@ -1,22 +1,39 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+
     public int health = 100;
     public GameObject fireballPrefab;
     public Transform fireballSpawn;
     bool ready = true;
     public Slider shootCooldown;
+    float shootAngle;
+    Vector2 shootInput;
+    float angle;
+    Quaternion newAngle;
+    float deadzone = 0.3f;
+    Vector2 stickInput;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
+    // Use this for initialization
+    void Start () {
+
+        shootAngle = Mathf.Atan2(0, 1) * Mathf.Rad2Deg;
+        shootInput = new Vector2(0, 1);
+        stickInput = shootInput;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        shootInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
+        if (shootInput.magnitude > deadzone)
+        {
+            stickInput = shootInput;
+            angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
+            newAngle = Quaternion.Euler(0, 0, -angle + 90);
+        }
         if (Input.GetAxis("Right Trigger") >0.5f)
         {
             Shoot();
@@ -33,10 +50,7 @@ public class PlayerController : MonoBehaviour {
         if (ready)
         {
 
-            float deadzone = 0.7f;
-            Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
-            if (stickInput.magnitude > deadzone)
-            {
+           
                 int rand = Random.Range(0, 2);
                 if (rand == 0)
                 {
@@ -50,21 +64,20 @@ public class PlayerController : MonoBehaviour {
                 {
                     GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("PewPew4");
                 }
-                    
-
-                var angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
-                var newAngle = Quaternion.Euler(0, 0, -angle + 90);
-                GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, newAngle);
-                fire.GetComponent<Rigidbody>().velocity = stickInput * 6;
-                shootCooldown.value = 0;
-                StartCoroutine(AnimateSliderOverTime(1));
-                Destroy(fire, 4.0f);
-            }
+            //angle = Mathf.Atan2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2")) * Mathf.Rad2Deg;
+            //newAngle = Quaternion.Euler(0, 0, -angle + 90);
+            GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, newAngle);
+            fire.GetComponent<Rigidbody>().velocity = stickInput.normalized * 6;
+            shootCooldown.value = 0;
+            StartCoroutine(AnimateSliderOverTime(1));
+            Destroy(fire, 4.0f);
 
 
 
 
-            //Debug.Log("Fire");
+
+
+            Debug.Log("Fire");
             ready = false;
             Invoke("DelayHandler", 1);
         }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player2crossHairScript : MonoBehaviour {
- 
+    float angle;
+    Quaternion newAngle;
+    Vector2 vNewInput;
     // Use this for initialization
     void Start () {
        
@@ -11,11 +13,11 @@ public class Player2crossHairScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-
-       Vector3 vNewInput = new Vector3(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"), 0.0f);
+        transform.rotation = newAngle;
+        Vector2 vNewInput = new Vector2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"));
         Move(vNewInput);
     }
-    void Move(Vector3 vNewInput)
+    void Move(Vector2 vNewInput)
     {
 
        
@@ -36,8 +38,8 @@ public class Player2crossHairScript : MonoBehaviour {
         //Vector2 stickInput = new Vector2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"));
 
        // Quaternion target = Quaternion.Euler(stickInput.x, stickInput.y, 0);
-        var angle = Mathf.Atan2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2")) * Mathf.Rad2Deg;
-        var newAngle = Quaternion.Euler(0, 0, -angle);
+        angle = Mathf.Atan2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2")) * Mathf.Rad2Deg;
+        newAngle = Quaternion.Euler(0, 0, -angle);
         // Dampen towards the target rotation
         Debug.Log(newAngle);
         transform.rotation = newAngle;
