@@ -5,6 +5,10 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour {
 
     public int dmg;
+    void Awake()
+    {
+        GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("shoot 1");
+    }
 
 
 	public int ApplyDamage()
