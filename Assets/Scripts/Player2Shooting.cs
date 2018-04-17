@@ -29,7 +29,7 @@ public class Player2Shooting : MonoBehaviour {
     void Update()
     {
         shootInput = new Vector2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"));
-        if (shootInput.magnitude > deadzone)
+        if (shootInput.sqrMagnitude > deadzone)
         {
             stickInput = shootInput;
             angle = Mathf.Atan2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2")) * Mathf.Rad2Deg;

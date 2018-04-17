@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         shootInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
-        if (shootInput.magnitude > deadzone)
+        if (shootInput.sqrMagnitude > deadzone)
         {
             stickInput = shootInput;
             angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
