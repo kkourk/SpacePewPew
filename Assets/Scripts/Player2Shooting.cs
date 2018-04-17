@@ -48,7 +48,7 @@ public class Player2Shooting : MonoBehaviour {
 
                 shootCooldown.value = 0;
                 StartCoroutine(AnimateSliderOverTime(1));
-                Destroy(fire, 2.0f);
+                Destroy(fire, 4.0f);
             }
 
 
