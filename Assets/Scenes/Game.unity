@@ -3402,7 +3402,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 405b099f914891d42a0bd20a0dcca1fb, type: 3}
+  - {fileID: 8300000, guid: 201da7e2d9c963245a0a777b569562db, type: 3}
+  - {fileID: 8300000, guid: 0897f5af89f12994fa00cb0dd9f5f234, type: 3}
+  - {fileID: 8300000, guid: c99a4ba31fe523d4991518837f32c7ad, type: 3}
+  - {fileID: 8300000, guid: 9a71dc85a8ec6a34fb8b2e67b92d7b58, type: 3}
+  - {fileID: 8300000, guid: 6e88f1699ce375c489ae198f137aa915, type: 3}
+  - {fileID: 8300000, guid: 7ca7d5a4e9209a847a4a5dd0203edefd, type: 3}
+  - {fileID: 8300000, guid: e8cf09c25be08da49a43c195882d834e, type: 3}
+  - {fileID: 8300000, guid: 53b9f5551849003459131792dec59433, type: 3}
+  - {fileID: 8300000, guid: 9918ad9acddbce446a2b7724f8b8cd0b, type: 3}
+  - {fileID: 8300000, guid: ed58ef3fb12f5404197e1659436ba0d7, type: 3}
+  - {fileID: 8300000, guid: 0f9e52913a736494f81d84e23c5b3e45, type: 3}
+  - {fileID: 8300000, guid: c17ffe65abc1cd24485ade0b3004e580, type: 3}
+  - {fileID: 8300000, guid: 0d1cbddfa5f6feb43babec8f9c6607ca, type: 3}
+  - {fileID: 8300000, guid: afaf0484584dc9548a09e2ae446144eb, type: 3}
+  - {fileID: 8300000, guid: ddf0877e4224b514ca1d45ebfe0c9c16, type: 3}
+  - {fileID: 8300000, guid: d0a615c0e490e80478c6dc2baa4f4f01, type: 3}
+  - {fileID: 8300000, guid: 16f050f0976ca0b4fa99631fae52be4e, type: 3}
+  - {fileID: 8300000, guid: 5c5bffdb72c5a1d49af56a68a1733596, type: 3}
+  - {fileID: 8300000, guid: 85e0321c31193c340a15712619f684b5, type: 3}
 --- !u!82 &1994436325
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3470,7 +3488,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

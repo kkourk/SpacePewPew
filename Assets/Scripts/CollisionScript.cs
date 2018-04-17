@@ -18,7 +18,7 @@ public class CollisionScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Projectile")
         {
             if (stats.shield2)
@@ -30,10 +30,10 @@ public class CollisionScript : MonoBehaviour {
             {
                 stats.health2 -= stats.damage1;
                 playerslider.value = stats.health2;
-                Debug.Log(stats.health2);
+                //Debug.Log(stats.health2);
                 if (stats.health2 <= 0)
                 {
-                    Debug.Log("Ending round");
+                    //Debug.Log("Ending round");
                     gameManager.EndRound(1);
                 }
             }

@@ -39,7 +39,7 @@ public class crossHairScript : MonoBehaviour {
         var angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
         var newAngle = Quaternion.Euler(0, 0, -angle);
         // Dampen towards the target rotation
-        Debug.Log(newAngle);
+        //Debug.Log(newAngle);
         transform.rotation = newAngle;
 
     }

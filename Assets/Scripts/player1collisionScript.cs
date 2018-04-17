@@ -31,10 +31,10 @@ public class player1collisionScript : MonoBehaviour {
             {
                 stats.health1 -= stats.damage2;
                 playerslider.value = stats.health1;
-                Debug.Log(stats.health1);
+                //Debug.Log(stats.health1);
                 if (stats.health1 <= 0)
                 {
-                    Debug.Log("Ending round");
+                    //Debug.Log("Ending round");
                     gameManager.EndRound(2);
                 }
             }

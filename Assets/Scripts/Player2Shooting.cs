@@ -38,6 +38,9 @@ public class Player2Shooting : MonoBehaviour {
             Vector2 stickInput = new Vector2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2"));
             if (stickInput.magnitude > deadzone)
             {
+                GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("MartinPewPew1");
+              
+
                 var angle = Mathf.Atan2(Input.GetAxis("Rx2"), Input.GetAxis("Ry2")) * Mathf.Rad2Deg;
                 var newAngle = Quaternion.Euler(0, 0, -angle + 90);
                 GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, newAngle);

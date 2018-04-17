@@ -32,10 +32,26 @@ public class PlayerController : MonoBehaviour {
     {
         if (ready)
         {
+
             float deadzone = 0.7f;
             Vector2 stickInput = new Vector2(Input.GetAxis("Rx"), Input.GetAxis("Ry"));
             if (stickInput.magnitude > deadzone)
             {
+                int rand = Random.Range(0, 2);
+                if (rand == 0)
+                {
+                    GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("PewPew1");
+                }
+                else if(rand == 1)
+                {
+                    GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("PewPew2");
+                }
+                else
+                {
+                    GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("PewPew4");
+                }
+                    
+
                 var angle = Mathf.Atan2(Input.GetAxis("Rx"), Input.GetAxis("Ry")) * Mathf.Rad2Deg;
                 var newAngle = Quaternion.Euler(0, 0, -angle + 90);
                 GameObject fire = Instantiate(fireballPrefab, fireballSpawn.position, newAngle);
@@ -48,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-            Debug.Log("Fire");
+            //Debug.Log("Fire");
             ready = false;
             Invoke("DelayHandler", 1);
         }

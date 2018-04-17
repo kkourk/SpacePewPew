@@ -74,7 +74,15 @@ public class Powerup : MonoBehaviour
 
     void HealthRegen(Collider player)
     {
-        Debug.Log("Health Regen Picked Up");
+
+        if (Random.Range(0,1) == 0)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("LOL1");
+        }
+        else
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("LOL2");
+        }
 
         //pickup animation
         //Instantiate(pickupEffect, transform.position, transform.rotation);
@@ -84,7 +92,7 @@ public class Powerup : MonoBehaviour
         if (player.CompareTag("Player1"))
         {
             stats.health1 += healthRegened;
-            Debug.Log(stats.health1);
+            //Debug.Log(stats.health1);
             playerOneSlider.value = stats.health1;
         }
         else 
@@ -101,8 +109,9 @@ public class Powerup : MonoBehaviour
 
     IEnumerator TempDmgBoost(Collider player)
     {
-        //pickup animation
-        //Instantiate(pickupEffect, transform.position, transform.rotation);
+        //pickup sound
+        GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("kaboom");
+
 
         //in-game effect
 
@@ -147,9 +156,15 @@ public class Powerup : MonoBehaviour
 
     void Shield(Collider player)
     {
-        //pickup animation
-        //Instantiate(pickupEffect, transform.position, transform.rotation);
-        
+        if (Random.Range(0, 1) == 0)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah1");
+        }
+        else
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah2");
+        }
+
         //in-game effect
 
         if (player.CompareTag("Player1"))

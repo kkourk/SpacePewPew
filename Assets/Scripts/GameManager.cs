@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Pause()
     {
-        Debug.Log(paused);
+        //Debug.Log(paused);
         if (!paused)
         {
             foreach (MonoBehaviour scripts in playerOne.GetComponents<MonoBehaviour>())
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             powerupManager.GetComponent<PowerupManager>().enabled = false;
 
             paused = true;
-            Debug.Log(paused);
+            //Debug.Log(paused);
         }
         else
         {
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
             powerupManager.GetComponent<PowerupManager>().enabled = true;
 
             paused = false;
-            Debug.Log(paused);
+            //Debug.Log(paused);
         }
 
     }
