@@ -7,6 +7,7 @@ public class player1collisionScript : MonoBehaviour {
     public Slider playerslider;
     public GameManager gameManager;
 
+    
     PlayersStats stats;
     GameObject shieldObj1;
 

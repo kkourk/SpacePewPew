@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //NEXT TIME
 
@@ -11,7 +12,6 @@ public enum PowerUps { DamageUp, HealthRegen , Shield};
 
 public class Powerup : MonoBehaviour
 {
-
     public PowerUps type;
     //effect
     public GameObject pickupEffect;
@@ -21,15 +21,24 @@ public class Powerup : MonoBehaviour
     public float damageMultiplier = 2f;
     public float duration = 4f;// duration of boost in seconds
 
+    Slider playerOneSlider;
+    Slider playerTwoSlider;
+
     PlayersStats stats;
     GameObject shieldObj1;
     GameObject shieldObj2;
+
+   
 
     private void Awake()
     {
         stats = GameObject.Find("GameManager").GetComponent<PlayersStats>();
         shieldObj1 = GameObject.Find("ShieldObj1");
         shieldObj2 = GameObject.Find("ShieldObj2");
+
+        playerOneSlider = GameObject.Find("PlayerOneHealth").GetComponent<Slider>();
+        playerTwoSlider = GameObject.Find("PlayerTwoHealth").GetComponent<Slider>();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,10 +79,12 @@ public class Powerup : MonoBehaviour
         {
             stats.health1 += healthRegened;
             Debug.Log(stats.health1);
+            playerOneSlider.value = stats.health1;
         }
         else 
         {
             stats.health2 += healthRegened;
+            playerTwoSlider.value = stats.health2;
         }
 
     

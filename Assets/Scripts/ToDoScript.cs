@@ -12,7 +12,6 @@ public class ToDoScript : MonoBehaviour {
      * obstacles
      * 
      * UI:
-     * Move cooldown icon
      * 
      * Make/get:
      * art

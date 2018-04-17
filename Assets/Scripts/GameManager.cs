@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     int playerOneWins = 0;
     int playerTwoWins = 0;
     public Text textfield;
@@ -20,43 +21,58 @@ public class GameManager : MonoBehaviour {
     bool paused = false;
     public Text countdown;
 
-	//Awake is always called before any Start functions
-	void Awake()
-	{
+    //Awake is always called before any Start functions
+    void Awake()
+    {
         playerOneTransform = playerOne.transform;
         playerTwoTransform = playerTwo.transform;
         paused = false;
         //Debug.Log(playerTwoTransform.position);
         //Check if instance already exists
-       // if (instance == null)
+        // if (instance == null)
 
-			//if not, set instance to this
-		//	instance = this;
+        //if not, set instance to this
+        //	instance = this;
 
-		//If instance already exists and it's not this:
-		//else if (instance != this)
+        //If instance already exists and it's not this:
+        //else if (instance != this)
 
-			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-		//	Destroy (gameObject);    
+        //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        //	Destroy (gameObject);    
         playerStats = this.GetComponent<PlayersStats>();
         //Sets this to not be destroyed when reloading scene
         //DontDestroyOnLoad (gameObject);
 
         Countdown();
-        
-	}
+
+    }
     void start()
     {
-        
+
     }
     void Countdown()
     {
         //pause game
         Pause();
         //countdown
-        countdown.text = "3";
+        StartCoroutine(Count());
         //unpause
         Invoke("Pause", 4);
+    }
+
+    IEnumerator Count()
+    {
+
+        countdown.text = "3";
+        yield return new WaitForSeconds(1);
+        countdown.text = "2";
+        yield return new WaitForSeconds(1);
+        countdown.text = "1";
+        yield return new WaitForSeconds(1);
+        countdown.text = "GO!";
+        yield return new WaitForSeconds(1);
+        countdown.text = "";
+
     }
 
     void Pause()
@@ -93,7 +109,7 @@ public class GameManager : MonoBehaviour {
             paused = false;
             Debug.Log(paused);
         }
-        
+
     }
     public void EndRound(int playernumber)
     {
@@ -118,7 +134,7 @@ public class GameManager : MonoBehaviour {
         playerOne.transform.position = new Vector3(-3, 0, 0);
         playerOne.GetComponent<Rigidbody>().velocity = Vector3.zero;
         playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        playerTwo.transform.rotation = Quaternion.Euler(0,0,0);
+        playerTwo.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerStats.health1 = 100;
         playerStats.health2 = 100;
@@ -143,7 +159,7 @@ public class GameManager : MonoBehaviour {
         }
         if (playerOneWins >= 3)
         {
-           
+
             playerTwoWins = 0;
             playerOneWins = 0;
             playerTwo.transform.position = new Vector3(3, 0, 0);
@@ -166,7 +182,7 @@ public class GameManager : MonoBehaviour {
         if (playerTwoWins >= 3)
         {
             //end game
-            
+
             playerTwoWins = 0;
             playerOneWins = 0;
             playerTwo.transform.position = new Vector3(3, 0, 0);

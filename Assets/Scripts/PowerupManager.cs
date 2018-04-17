@@ -8,6 +8,7 @@ public class PowerupManager : MonoBehaviour
     public float spawnInterval = 7f; //interval in seconds 
     public List<GameObject> powerups = new List<GameObject>();
 
+    
 
     private void Start()
     {
