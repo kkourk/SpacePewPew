@@ -110,7 +110,19 @@ public class Powerup : MonoBehaviour
     IEnumerator TempDmgBoost(Collider player)
     {
         //pickup sound
-        GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("kaboom");
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("boost1");
+        }
+        else if (rand == 1)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("boost2");
+        }
+        else
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("boost3");
+        }
 
 
         //in-game effect
@@ -156,8 +168,19 @@ public class Powerup : MonoBehaviour
 
     void Shield(Collider player)
     {
-        GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("Nyah1");
-        
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("shield2");
+        }
+        else if (rand == 1)
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("shield3");
+        }
+        else
+        {
+            GameObject.Find("Main Camera").GetComponent<SoundScript>().playSound("shield4");
+        }
 
         //in-game effect
 
