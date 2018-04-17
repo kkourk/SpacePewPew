@@ -28,7 +28,10 @@ public class Powerup : MonoBehaviour
     GameObject shieldObj1;
     GameObject shieldObj2;
 
-   
+    MeshRenderer crosshairOne;
+    MeshRenderer crosshairTwo;
+
+    MeshRenderer crosshairOne1;
 
     private void Awake()
     {
@@ -38,6 +41,9 @@ public class Powerup : MonoBehaviour
 
         playerOneSlider = GameObject.Find("PlayerOneHealth").GetComponent<Slider>();
         playerTwoSlider = GameObject.Find("PlayerTwoHealth").GetComponent<Slider>();
+
+        crosshairOne = GameObject.Find("CrosshairOne").GetComponent<MeshRenderer>();
+        crosshairTwo = GameObject.Find("CrosshairTwo").GetComponent<MeshRenderer>();
 
     }
 
@@ -103,10 +109,12 @@ public class Powerup : MonoBehaviour
         if (player.CompareTag("Player1"))
         {
             stats.damage1 = PlayersStats.defDamage * damageMultiplier;
+            crosshairOne.material.color = Color.red;
         }
         else
         {
             stats.damage2 = PlayersStats.defDamage * damageMultiplier;
+            crosshairTwo.material.color = Color.red;
         }
 
         
@@ -124,10 +132,12 @@ public class Powerup : MonoBehaviour
         if (player.CompareTag("Player1"))
         {
             stats.damage1 = PlayersStats.defDamage;
+            crosshairOne.material.color = Color.yellow;
         }
         else
         {
             stats.damage2 = PlayersStats.defDamage;
+            crosshairOne.material.color = Color.yellow;
         }
 
 
