@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
     bool paused = false;
     public Text countdown;
     AsyncOperation asyncOperation;
-
+    public GameObject shield1;
+    public GameObject shield2;
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -149,6 +150,8 @@ public class GameManager : MonoBehaviour
         playertwoslider.value = 100;
         GameObject.Find("CrosshairOne").GetComponent<MeshRenderer>().material.color = Color.yellow;
         GameObject.Find("CrosshairTwo").GetComponent<MeshRenderer>().material.color = Color.yellow;
+        shield1.GetComponent<Renderer>().enabled = false;
+        shield2.GetComponent<Renderer>().enabled = false;
         GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("PowerUp");
         foreach (GameObject powerup in gameobjects)
         {

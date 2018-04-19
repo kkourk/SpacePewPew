@@ -17,7 +17,7 @@ public class textscroll : MonoBehaviour {
     void Update () {
         //Vector3 localtransform = gameObject.transform.InverseTransformPoint(transform.position);
         //localtransform += new Vector3(0,-1,0);
-        this.gameObject.transform.position += new Vector3(0, 0.005f, 0);
+        this.gameObject.transform.position += new Vector3(0, 0.0055f, 0);
         if (Input.GetButtonDown("Cancel"))
         {
             asyncOperation.allowSceneActivation = true;
