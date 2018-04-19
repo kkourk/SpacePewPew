@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     bool paused = false;
     public Text countdown;
+    AsyncOperation asyncOperation;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -46,9 +47,11 @@ public class GameManager : MonoBehaviour
         Countdown();
 
     }
-    void start()
+ 
+    void Start()
     {
-
+        asyncOperation = SceneManager.LoadSceneAsync("Outro");
+        asyncOperation.allowSceneActivation = false;
     }
     void Countdown()
     {
@@ -144,6 +147,8 @@ public class GameManager : MonoBehaviour
         playerStats.damage2 = PlayersStats.defDamage;
         playeroneslider.value = 100;
         playertwoslider.value = 100;
+        GameObject.Find("CrosshairOne").GetComponent<MeshRenderer>().material.color = Color.yellow;
+        GameObject.Find("CrosshairTwo").GetComponent<MeshRenderer>().material.color = Color.yellow;
         GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("PowerUp");
         foreach (GameObject powerup in gameobjects)
         {
@@ -161,30 +166,32 @@ public class GameManager : MonoBehaviour
         }
         if (playerOneWins >= 3)
         {
-
-            playerTwoWins = 0;
-            playerOneWins = 0;
-            playerTwo.transform.position = new Vector3(3, 0, 0);
-            playerTwo.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            playerTwo.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            playerOne.transform.position = new Vector3(-3, 0, 0);
-            playerOne.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            playerTwo.transform.rotation = Quaternion.Euler(0, 0, 0);
-            playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
-            playerStats.health1 = 100;
-            playerStats.health2 = 100;
-            playerStats.damage1 = PlayersStats.defDamage;
-            playerStats.damage2 = PlayersStats.defDamage;
-            playeroneslider.value = 100;
-            playertwoslider.value = 100;
-            SceneManager.LoadScene("Main Menu");
-            //end game
+            /*
+                        playerTwoWins = 0;
+                        playerOneWins = 0;
+                        playerTwo.transform.position = new Vector3(3, 0, 0);
+                        playerTwo.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        playerTwo.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        playerOne.transform.position = new Vector3(-3, 0, 0);
+                        playerOne.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        playerOne.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        playerTwo.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        playerOne.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        playerStats.health1 = 100;
+                        playerStats.health2 = 100;
+                        playerStats.damage1 = PlayersStats.defDamage;
+                        playerStats.damage2 = PlayersStats.defDamage;
+                        playeroneslider.value = 100;
+                        playertwoslider.value = 100;
+                        SceneManager.LoadScene("Main Menu");
+                        //end game*/
+            BackgroundMusic.PlayerWon = 1;
+            asyncOperation.allowSceneActivation = true;
         }
         if (playerTwoWins >= 3)
         {
             //end game
-
+            /*
             playerTwoWins = 0;
             playerOneWins = 0;
             playerTwo.transform.position = new Vector3(3, 0, 0);
@@ -201,7 +208,9 @@ public class GameManager : MonoBehaviour
             playerStats.damage2 = PlayersStats.defDamage;
             playeroneslider.value = 100;
             playertwoslider.value = 100;
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Main Menu");*/
+            BackgroundMusic.PlayerWon = 2;
+            asyncOperation.allowSceneActivation = true;
         }
     }
 

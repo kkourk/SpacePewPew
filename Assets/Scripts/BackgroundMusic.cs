@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
 
-
+    static int playerWon = 0;
     public static BackgroundMusic instance = null;
 
     void Awake()
@@ -17,5 +17,9 @@ public class BackgroundMusic : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
+    public static int PlayerWon
+    {
+        get { return playerWon; }
+        set { playerWon = value; }
+    }
 }
