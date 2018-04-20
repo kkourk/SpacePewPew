@@ -158,7 +158,7 @@ public class Powerup : MonoBehaviour
         else
         {
             stats.damage2 = PlayersStats.defDamage;
-            crosshairOne.material.color = Color.yellow;
+            crosshairTwo.material.color = Color.yellow;
         }
 
 

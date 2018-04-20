@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
  
     void Start()
     {
-        asyncOperation = SceneManager.LoadSceneAsync("Outro");
+        asyncOperation = SceneManager.LoadSceneAsync("meanwhile");
         asyncOperation.allowSceneActivation = false;
     }
     void Countdown()
