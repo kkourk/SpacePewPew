@@ -11,7 +11,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Code4Cake
   productName: SpacePewPew
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: -9000, y: -9000}
